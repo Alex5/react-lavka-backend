@@ -1,12 +1,13 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { StoresModule } from './modules/store/stores.module';
+import { StoreModule } from './modules/store/store.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from './modules/user/entity/user.entity';
-import { UsersModule } from './modules/user/users.module';
+import { UserModule } from './modules/user/user.module';
 import configuration from './config/app.config';
+import { CatalogModule } from './modules/catalog/catalog.module';
 
 @Module({
   imports: [
@@ -18,8 +19,9 @@ import configuration from './config/app.config';
       ...configuration().database,
       entities: [UserEntity],
     }),
-    StoresModule,
-    UsersModule,
+    StoreModule,
+    CatalogModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],

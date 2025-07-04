@@ -1,12 +1,12 @@
 import { Controller, Get } from '@nestjs/common';
-import { UsersService } from './users.service';
+import { UserService } from './user.service';
 
 @Controller({
   version: '1',
   path: 'user',
 })
-export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+export class UserController {
+  constructor(private readonly usersService: UserService) {}
 
   @Get()
   getAllUsers() {

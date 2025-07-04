@@ -4,8 +4,8 @@ import { AppService } from './app.service';
 import { StoresModule } from './modules/store/stores.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserEntity } from './modules/users/entity/user.entity';
-import { UsersModule } from './modules/users/users.module';
+import { UserEntity } from './modules/user/entity/user.entity';
+import { UsersModule } from './modules/user/users.module';
 import configuration from './config/app.config';
 
 @Module({
@@ -17,7 +17,6 @@ import configuration from './config/app.config';
     TypeOrmModule.forRoot({
       ...configuration().database,
       entities: [UserEntity],
-      synchronize: true,
     }),
     StoresModule,
     UsersModule,

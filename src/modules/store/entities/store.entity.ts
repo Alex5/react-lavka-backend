@@ -1,4 +1,5 @@
-import { Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { CatalogEntity } from '../../catalog/catalog.entity';
 
 export class StoreEntity {
   @PrimaryGeneratedColumn()
@@ -6,4 +7,7 @@ export class StoreEntity {
 
   @Column()
   address: string;
+
+  @OneToOne(() => CatalogEntity, (catalog) => catalog.store, { cascade: true })
+  catalog: CatalogEntity;
 }

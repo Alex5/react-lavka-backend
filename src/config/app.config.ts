@@ -1,3 +1,5 @@
+import * as process from 'node:process';
+
 export default () => ({
   port: parseInt(process.env.PORT!, 10) || 3000,
   database: {
@@ -7,5 +9,6 @@ export default () => ({
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
+    synchronize: Boolean(process.env.DB_SYNC),
   },
 });

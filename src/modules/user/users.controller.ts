@@ -3,7 +3,7 @@ import { UsersService } from './users.service';
 
 @Controller({
   version: '1',
-  path: 'users',
+  path: 'user',
 })
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}

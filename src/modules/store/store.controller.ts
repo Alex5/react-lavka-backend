@@ -1,7 +1,16 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get, HttpCode, HttpStatus } from '@nestjs/common';
 import { StoreService } from './store.service';
 
-@Controller('store')
+@Controller({
+  path: 'store',
+  version: '1',
+})
 export class StoreController {
   constructor(private readonly storesService: StoreService) {}
+
+  @Get()
+  @HttpCode(HttpStatus.OK)
+  getAllStores() {
+    return this.storesService.getAllStores();
+  }
 }

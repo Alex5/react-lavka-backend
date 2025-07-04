@@ -10,7 +10,7 @@ export class StoreService {
     private storeRepository: Repository<StoreEntity>,
   ) {}
 
-  findAll() {
+  getAllStores() {
     return this.storeRepository.find();
   }
 }

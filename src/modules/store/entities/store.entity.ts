@@ -1,1 +1,1 @@
-export class Store {}
+export class StoreEntity {}

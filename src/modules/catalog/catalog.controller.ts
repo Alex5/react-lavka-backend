@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { CatalogService } from './catalog.service';
 
 @Controller({
@@ -8,8 +8,9 @@ import { CatalogService } from './catalog.service';
 export class CatalogController {
   constructor(private readonly catalogService: CatalogService) {}
 
-  @Get(':store_id')
-  getCatalogByStoreId(@Param('store_id') store_id: number) {
+  // api/v1/catalog?store_id=1
+  @Get()
+  getCatalogByStoreId(@Query('store_id') store_id: string) {
     return this.catalogService.getCatalogByStore({ store_id });
   }
 }

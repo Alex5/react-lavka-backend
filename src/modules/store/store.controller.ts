@@ -13,4 +13,9 @@ export class StoreController {
   getAllStores() {
     return this.storesService.getAllStores();
   }
+
+  // @Get(':store_id/catalog')
+  // getStoreCatalog() {
+  //   this.storesService.getCatalog();
+  // }
 }

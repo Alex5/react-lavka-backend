@@ -1,14 +1,26 @@
-import { Column, Entity, PrimaryGeneratedColumn, OneToOne } from 'typeorm';
-import { StoreEntity } from '../store/entities/store.entity';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  JoinColumn,
+  OneToOne,
+} from 'typeorm';
+import { StoreEntity } from '../store/store.entity';
+import { CategoryEntity } from '../category/category.entity';
 
-@Entity()
+@Entity('catalog')
 export class CatalogEntity {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @Column()
   name: string;
 
-  @OneToOne(() => StoreEntity, (store) => store.id)
+  @OneToOne(() => StoreEntity, (store) => store.catalog)
+  @JoinColumn()
   store: StoreEntity;
+
+  @OneToMany(() => CategoryEntity, (category) => category.catalog)
+  categories: CategoryEntity[];
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { StoreEntity } from './entities/store.entity';
+import { StoreEntity } from './store.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -12,5 +12,9 @@ export class StoreService {
 
   getAllStores() {
     return this.storeRepository.find();
+  }
+
+  getCatalog() {
+    // ?
   }
 }

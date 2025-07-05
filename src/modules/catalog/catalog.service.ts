@@ -10,7 +10,7 @@ export class CatalogService {
     private catalogRepository: Repository<CatalogEntity>,
   ) {}
 
-  getCatalogByStore({ store_id }: { store_id: number }) {
+  getCatalogByStore({ store_id }: { store_id: string }) {
     return this.catalogRepository.findOne({
       where: {
         id: store_id,

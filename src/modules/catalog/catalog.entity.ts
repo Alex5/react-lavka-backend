@@ -3,7 +3,6 @@ import {
   Column,
   PrimaryGeneratedColumn,
   OneToMany,
-  JoinColumn,
   OneToOne,
 } from 'typeorm';
 import { StoreEntity } from '../store/store.entity';
@@ -18,7 +17,6 @@ export class CatalogEntity {
   name: string;
 
   @OneToOne(() => StoreEntity, (store) => store.catalog)
-  @JoinColumn()
   store: StoreEntity;
 
   @OneToMany(() => CategoryEntity, (category) => category.catalog)

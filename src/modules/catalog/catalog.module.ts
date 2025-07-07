@@ -8,5 +8,6 @@ import { CatalogEntity } from './catalog.entity';
   imports: [TypeOrmModule.forFeature([CatalogEntity])],
   providers: [CatalogService],
   controllers: [CatalogController],
+  exports: [TypeOrmModule],
 })
 export class CatalogModule {}

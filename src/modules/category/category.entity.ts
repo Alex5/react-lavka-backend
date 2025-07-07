@@ -1,4 +1,10 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { CatalogEntity } from '../catalog/catalog.entity';
 
 @Entity('category')
@@ -13,4 +19,7 @@ export class CategoryEntity {
     onDelete: 'CASCADE',
   })
   catalog: CatalogEntity;
+
+  @OneToMany(() => CategoryEntity, (category) => category)
+  items: CategoryEntity[];
 }

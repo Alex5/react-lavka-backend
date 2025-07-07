@@ -15,9 +15,9 @@ export class StoreEntity {
   @Column()
   address: string;
 
-  @OneToOne(() => CatalogEntity, (c) => c.store, {
+  @OneToOne(() => CatalogEntity, (catalog) => catalog.store, {
     cascade: true,
   })
   @JoinColumn()
-  catalog: CatalogEntity;
+  catalog: CatalogEntity | null;
 }

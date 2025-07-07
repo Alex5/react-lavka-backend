@@ -13,8 +13,4 @@ export class StoreService {
   getAllStores() {
     return this.storeRepository.find();
   }
-
-  getCatalog() {
-    // ?
-  }
 }

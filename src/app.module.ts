@@ -2,10 +2,9 @@ import { Module } from '@nestjs/common';
 import { StoreModule } from './modules/store/store.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserEntity } from './modules/user/entity/user.entity';
-import { UserModule } from './modules/user/user.module';
 import configuration from './config/app.config';
 import { CatalogModule } from './modules/catalog/catalog.module';
+import { CategoryModule } from './modules/category/category.module';
 
 @Module({
   imports: [
@@ -15,11 +14,12 @@ import { CatalogModule } from './modules/catalog/catalog.module';
     }),
     TypeOrmModule.forRoot({
       ...configuration().database,
-      entities: [UserEntity],
+      entities: [],
+      autoLoadEntities: true,
     }),
     StoreModule,
     CatalogModule,
-    UserModule,
+    CategoryModule,
   ],
   controllers: [],
   providers: [],
